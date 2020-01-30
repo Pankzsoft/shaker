@@ -1,0 +1,95 @@
+
+./Setup.hs,15
+main main1,2
+
+./Docker.hs,1719
+module Docker Docker39,40
+newtype Repo Repo68,69
+newtype Tag Tag72,73
+newtype SHA256 SHA25682,83
+newtype SHA256 = SHA256 { unSha256 unSha25682,83
+emptySha emptySha85,86
+newtype Image Image88,89
+instance IsString IsString Image91,92
+  fromString fromString92,93
+toArg toArg98,99
+imageSha imageSha101,102
+type instance instance108,109
+data ImageRule ImageRule110,111
+data ImageRule = ImageRule ImageRule110,111
+imageRule imageRule112,113
+needImage needImage117,118
+toBytes toBytes120,121
+fromBytes fromBytes123,124
+runImage runImage127,128
+newtype Volume Volume144,145
+type instance instance147,148
+data VolumeRule VolumeRule149,150
+data VolumeRule = VolumeRule VolumeRule149,150
+type VolumeHash VolumeHash151,152
+needVolume needVolume153,154
+volumeRule volumeRule156,157
+runVolume runVolume162,163
+newtype Container Container178,179
+newtype ContainerId ContainerId181,182
+type instance instance184,185
+data ContainerRule ContainerRule186,187
+data ContainerRule = ContainerRule ContainerRule186,187
+data ContainerInspect ContainerInspect188,189
+data ContainerInspect = ContainerInspect ContainerInspect188,189
+data ContainerInspect = ContainerInspect { containerId containerId188,189
+                                         , containerImage containerImage189,190
+                                         , running running190,191
+needContainer needContainer194,195
+containerRule containerRule197,198
+runContainer runContainer204,205
+findRunningContainer findRunningContainer221,222
+addBuiltinImageRule addBuiltinImageRule232,233
+addBuiltinVolumeRule addBuiltinVolumeRule237,238
+addBuiltinContainerRule addBuiltinContainerRule245,246
+
+./src/Shake/Extra/Docker.hs,1631
+module Shake.Extra.Docker Shake.Extra.Docker39,40
+newtype Repo Repo68,69
+newtype Tag Tag72,73
+newtype SHA256 SHA25682,83
+newtype SHA256 = SHA256 { unSha256 unSha25682,83
+emptySha emptySha85,86
+newtype Image Image88,89
+instance IsString IsString Image91,92
+  fromString fromString92,93
+toArg toArg98,99
+imageSha imageSha101,102
+type instance instance108,109
+data ImageRule ImageRule110,111
+data ImageRule = ImageRule ImageRule110,111
+imageRule imageRule112,113
+needImage needImage117,118
+toBytes toBytes120,121
+fromBytes fromBytes123,124
+runImage runImage127,128
+newtype Volume Volume144,145
+type instance instance147,148
+data VolumeRule VolumeRule149,150
+data VolumeRule = VolumeRule VolumeRule149,150
+type VolumeHash VolumeHash151,152
+needVolume needVolume153,154
+volumeRule volumeRule156,157
+runVolume runVolume162,163
+newtype Container Container178,179
+newtype ContainerId ContainerId181,182
+type instance instance184,185
+data ContainerRule ContainerRule186,187
+data ContainerRule = ContainerRule ContainerRule186,187
+data ContainerInspect ContainerInspect188,189
+data ContainerInspect = ContainerInspectContainerInspect188,189
+    { containerId containerId189,190
+    , containerImage containerImage190,191
+    , running running191,192
+needContainer needContainer195,196
+containerRule containerRule198,199
+runContainer runContainer205,206
+findRunningContainer findRunningContainer222,223
+addBuiltinImageRule addBuiltinImageRule233,234
+addBuiltinVolumeRule addBuiltinVolumeRule238,239
+addBuiltinContainerRule addBuiltinContainerRule246,247

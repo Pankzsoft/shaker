@@ -1,0 +1,40 @@
+name:                shake-docker
+version:             0.1.0.0
+github:              "abailly/shake-docker"
+license:             BSD3
+author:              "Arnaud Bailly"
+maintainer:          "arnaud@pankzsoft.com"
+copyright:           "2020 Arnaud Bailly"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+synopsis:            Rules and types to work with docker images and containers in Shake
+category:            Build
+
+description:         Please see the README on GitHub at <https://github.com/abailly/shake-docker#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- aeson
+- binary
+- bytestring
+- filepath
+- shake
+- text
+
+library:
+  source-dirs: src
+  exposed-modules: Shake.Extra.Docker
+
+tests:
+  shake-docker-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - shake-docker
