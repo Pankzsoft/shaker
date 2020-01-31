@@ -22,7 +22,7 @@ type instance RuleResult GhcPkgVersion = Maybe String
 gitHeadRule :: Rules (GitHead -> Action (Maybe String))
 gitHeadRule = addOracle $ \GitHead{} -> do
   isClean <- checkGitWorkDirIsClean
-  if isClean
+  if not isClean
     then pure Nothing
     else computeHead
 
