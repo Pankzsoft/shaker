@@ -39,23 +39,17 @@ main = shakeArgs options $ do
 -}
 module Shake.Extra.Docker where
 
-import           Data.Aeson                 as Aeson
+import           Data.Aeson                as Aeson
 import           Data.Binary
-import qualified Data.ByteString            as BS
-import           Data.Data
-import           Data.Monoid
+import qualified Data.ByteString           as BS
 import           Data.String
-import qualified Data.Text                  as Text
-import           Data.Text.Encoding         (decodeUtf8, encodeUtf8)
+import qualified Data.Text                 as Text
+import           Data.Text.Encoding        (decodeUtf8, encodeUtf8)
 import           Development.Shake
 import           Development.Shake.Classes
-import           Development.Shake.Command
-import           Development.Shake.FilePath
 import           Development.Shake.Rule
-import           Development.Shake.Util
 import           GHC.Generics
 import           System.Exit
-import           System.FilePath
 
 -- * Docker Rules
 -- see <https://hackage.haskell.org/package/shake-0.18.4/docs/Development-Shake-Rule.html#t:BuiltinIdentity Shake API> documentation for details
@@ -133,8 +127,8 @@ runImage key old mode = do
       else do
       (_, act) <- getUserRuleOne key (const Nothing) $ \(ImageRule k act) -> if k == key then Just act else Nothing
       act  -- run the action to update the target 'key'
-      current <- imageSha key  -- get the value to store for 'key' changed
-      return $ RunResult ChangedRecomputeDiff (BS.pack current) (SHA256 $ fromBytes $ BS.pack current)
+      current' <- imageSha key  -- get the value to store for 'key' changed
+      return $ RunResult ChangedRecomputeDiff (BS.pack current') (SHA256 $ fromBytes $ BS.pack current')
 
 
 -- ** Volumes
@@ -168,8 +162,8 @@ runVolume volumeHash key old mode = do
       else do
       (_, act) <- getUserRuleOne key (const Nothing) $ \(VolumeRule k act) -> if k == key then Just act else Nothing
       act
-      current <- volumeHash key
-      return $ RunResult ChangedRecomputeDiff current ()
+      current' <- volumeHash key
+      return $ RunResult ChangedRecomputeDiff current' ()
 
 -- ** Containers
 --
